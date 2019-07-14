@@ -1,6 +1,5 @@
 var { CONNECTION_URL, OPTIONS, DATABSE } = require("../config/mongodb.config");
 var router = require("express").Router();
-var { authenticate, authorize } = require("../lib/security/accountcontrol.js");
 var MongoClient = require("mongodb").MongoClient;
 var tokens = new require("csrf")();
 
@@ -38,7 +37,7 @@ var createRegistData = function (body) {
   };
 };
 
-router.get("/", authorize("readWrite"), (req, res) => {
+router.get("/", (req, res) => {
   tokens.secret((error, secret) => {
     var token = tokens.create(secret);
     req.session._csrf = secret;
@@ -47,12 +46,12 @@ router.get("/", authorize("readWrite"), (req, res) => {
   });
 });
 
-router.post("/input", authorize("readWrite"), (req, res) => {
+router.post("/input", (req, res) => {
   var original = createRegistData(req.body);
   res.render("./account/posts/regist-form.ejs", { original });
 });
 
-router.post("/confirm", authorize("readWrite"), (req, res) => {
+router.post("/confirm", (req, res) => {
   var original = createRegistData(req.body);
   var errors = validateRegistData(req.body);
   if (errors) {
@@ -62,7 +61,7 @@ router.post("/confirm", authorize("readWrite"), (req, res) => {
   res.render("./account/posts/regist-confirm.ejs", { original });
 });
 
-router.post("/execute", authorize("readWrite"), (req, res) => {
+router.post("/execute", (req, res) => {
   var secret = req.session._csrf;
   var token = req.cookies._csrf;
 
@@ -94,7 +93,7 @@ router.post("/execute", authorize("readWrite"), (req, res) => {
   });
 });
 
-router.get("/complete", authorize("readWrite"), (req, res) => {
+router.get("/complete", (req, res) => {
   res.render("./account/posts/regist-complete.ejs");
 });
 

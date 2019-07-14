@@ -1,5 +1,4 @@
 var { CONNECTION_URL, OPTIONS, DATABSE } = require("../config/mongodb.config");
-var { MAX_ITEMS_PER_PAGE } = require("../config/app.config.js").search;
 var router = require("express").Router();
 var { MongoClient, ObjectID } = require("mongodb");
 

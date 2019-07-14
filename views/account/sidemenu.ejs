@@ -2,9 +2,9 @@
   <div class="border-bottom mt-5 mb-5">
     <h1 class="text-center"><i class="fas fa-user-circle"></i></h1>
   </div>
-  <nav class="nav flex-column">
-    <a class="nav-link" href="/account/">ホーム</a>
-    <a class="nav-link" href="/account/posts/search">記事</a>
-    <a class="nav-link" href="/account/config/">設定</a>
+  <nav class="nav flex-column nav-pills">
+    <a class="nav-link <%= locals.page === 'home' ? 'active' : '' %>" href="/account/">ホーム</a>
+    <a class="nav-link <%= locals.page === 'posts' ? 'active' : '' %>" href="/account/posts/search">記事</a>
+    <a class="nav-link <%= locals.page === 'config' ? 'active' : '' %>" href="/account/config/">設定</a>
   </nav>
 </nav>

@@ -19,9 +19,10 @@ router.post("/logout", (req, res) => {
   res.redirect("/account/login");
 });
 
-router.use("/posts/search", require("./account.posts.search.js"));
-router.use("/posts/regist", require("./account.posts.regist.js"));
-router.use("/posts", require("./account.posts.delete.js"));
-router.use("/posts", require("./account.posts.edit.js"));
+router.use("/posts/search", authorize("readWrite"), require("./account.posts.search.js"));
+router.use("/posts/regist", authorize("readWrite"), require("./account.posts.regist.js"));
+router.use("/posts", authorize("readWrite"), require("./account.posts.delete.js"));
+router.use("/posts", authorize("readWrite"), require("./account.posts.edit.js"));
+router.use("/config", authorize("readWrite"), require("./account.config.js"));
 
 module.exports = router;
