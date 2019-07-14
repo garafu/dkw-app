@@ -1,3 +1,4 @@
+var { CONNECTION_URL, OPTIONS, DATABSE } = require("../config/mongodb.config");
 var router = require("express").Router();
 var { authenticate, authorize } = require("../lib/security/accountcontrol.js");
 var MongoClient = require("mongodb").MongoClient;

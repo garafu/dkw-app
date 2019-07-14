@@ -13,19 +13,23 @@
 <body>
 
   <%- include("../../_share/navbar.ejs") %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include("../sidemenu.ejs") %>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-    <main role="main" class="container">
+        <div class="border-bottom mt-5 mb-5">
+          <h1>既存記事削除</h1>
+        </div>
+        <div class="alert alert-success">
+          削除完了
+        </div>
 
-      <div class="border-bottom mt-5 mb-5">
-        <h1>既存記事削除</h1>
-      </div>
-      <div class="alert alert-success">
-        削除完了
-      </div>
+      </main>
+    </div>
+  </div>
 
-    </main>
-
-    <%- include("../../_share/javascripts.ejs") %>
+  <%- include("../../_share/javascripts.ejs") %>
 </body>
 
 </html>
