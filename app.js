@@ -7,6 +7,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
+var RedisStore = require("connect-redis")(session);
+var Redis = require("ioredis");
 var flash = require("connect-flash");
 var app = express();
 
@@ -19,6 +21,9 @@ app.use(accesslogger());
 
 app.use(cookieParser());
 app.use(session({
+  store: new RedisStore({
+    client: new Redis(require("./config/redis.config.js").OPTIONS)
+  }),
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: true,

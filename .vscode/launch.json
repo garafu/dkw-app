@@ -9,14 +9,21 @@
       "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}/app.js",
-      // "cwd": "${workspaceFolder}/",
       "env": {
+        "NODE_ENV": "production",
         // "MONGODB_USERNAME": "user",
         // "MONGODB_PASSWORD": "user",
         "MONGODB_HOSTS": "localhost:27017",
         "MONGODB_DATABASE": "weblog",
         // "MONGODB_REPLICASET": "rs0"
-      }
+        // "REDIS_HOST": "localhost:6379",
+        "REDIS_NAME": "mymaster",
+        "REDIS_SENTINELS": "10.51.2.248:5000, 10.51.2.238:5001, 10.51.2.248:5002",
+        "REDIS_PASSWORD": "YOUR-STRONG-PASSWORD",
+        "REDIS_DATABASE": "0",
+        // "DEBUG": "ioredis:*"
+      },
+      // "outputCapture": "std"
     }
   ]
 }
