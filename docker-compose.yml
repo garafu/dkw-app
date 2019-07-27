@@ -1,0 +1,29 @@
+version: "3"
+services: 
+  database:
+    image: dkw-db
+    container_name: database
+    command: |
+      mongod --bind_ip_all
+    expose: 
+      - 27017
+    ports: 
+      - 28017:27017
+    env_file: ./.env
+    networks: 
+      - mynet
+  webapp:
+    image: dkw-app
+    container_name: webapp
+    expose:
+      - 3000
+    ports:
+     - 3000:3000
+    environment:
+     - NODE_ENV=production
+    env_file: ./.env
+    networks:
+    - mynet
+networks: 
+  mynet:
+    driver: bridge

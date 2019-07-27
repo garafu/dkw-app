@@ -3,3 +3,8 @@
 **/.git
 **/.DS_Store
 **/node_modules
+
+.env
+docker-build.bat
+docker-compose.yml
+package-lock.json
