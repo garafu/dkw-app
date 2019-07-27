@@ -1,4 +1,5 @@
 var path = require("path");
+var { CONNECTION_URL, DATABSE } = require("./config/mongodb.config.js");
 var { SESSION_SECRET } = require("./config/app.config.js").security;
 var accesslogger = require("./lib/log/accesslogger.js");
 var systemlogger = require("./lib/log/systemlogger.js");
@@ -7,8 +8,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
-var RedisStore = require("connect-redis")(session);
-var Redis = require("ioredis");
+var MongoStore = require("connect-mongo")(session);
 var flash = require("connect-flash");
 var app = express();
 
@@ -21,8 +21,8 @@ app.use(accesslogger());
 
 app.use(cookieParser());
 app.use(session({
-  store: new RedisStore({
-    client: new Redis(require("./config/redis.config.js").OPTIONS)
+  store: new MongoStore({
+    url: CONNECTION_URL
   }),
   secret: SESSION_SECRET,
   resave: false,
@@ -90,3 +90,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000);
+console.log("Application start at port 3000.");

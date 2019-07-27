@@ -436,13 +436,12 @@ connect-flash@^0.1.1:
   resolved "https://registry.yarnpkg.com/connect-flash/-/connect-flash-0.1.1.tgz#d8630f26d95a7f851f9956b1e8cc6732f3b6aa30"
   integrity sha1-2GMPJtlaf4UfmVax6MxnMvO2qjA=
 
-connect-redis@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/connect-redis/-/connect-redis-3.4.1.tgz#0623af46182232457fefbc7d4f552d87d35b3d20"
-  integrity sha512-oXNcpLg/PJ6G4gbhyGwrQK9mUQTKYa2aEnOH9kWIxbNUjIFPqUmzz75RdLp5JTPSjrBVcz+9ll4sSxfvlW0ZLA==
+connect-mongo@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/connect-mongo/-/connect-mongo-3.0.0.tgz#8d038b024202a0d63d922a5a135adf243ab9f64f"
+  integrity sha512-Y95urWNGrAoKY2w31s7Q9Gs/W3qdMCshUIeDTgulssHi6KueYtz4XrbV3kcnQaR8EcBQvooNNX7aOaAJDgudag==
   dependencies:
-    debug "^4.1.1"
-    redis "^2.8.0"
+    mongodb "^3.1.0"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
@@ -642,11 +641,6 @@ detect-libc@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
-
-double-ended-queue@^2.1.0-0:
-  version "2.1.0-0"
-  resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
-  integrity sha1-ED01J/0xUo9AGIEwyEHv3XgmTlw=
 
 duplexify@^3.6.0:
   version "3.7.1"
@@ -1781,7 +1775,7 @@ mongodb-core@3.2.7:
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb@^3.2.7:
+mongodb@^3.1.0, mongodb@^3.2.7:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.2.7.tgz#8ba149e4be708257cad0dea72aebb2bbb311a7ac"
   integrity sha512-2YdWrdf1PJgxcCrT1tWoL6nHuk6hCxhddAAaEh8QJL231ci4+P9FLyqopbTm2Z2sAU6mhCri+wd9r1hOcHdoMw==
@@ -2298,7 +2292,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-redis-commands@1.5.0, redis-commands@^1.2.0:
+redis-commands@1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.5.0.tgz#80d2e20698fe688f227127ff9e5164a7dd17e785"
   integrity sha512-6KxamqpZ468MeQC3bkWmCB1fp56XL64D4Kf0zJSwDZbVLLm7KFkoIcHrgRvQ+sk8dnhySs7+yBg94yIkAK7aJg==
@@ -2308,26 +2302,12 @@ redis-errors@^1.0.0, redis-errors@^1.2.0:
   resolved "https://registry.yarnpkg.com/redis-errors/-/redis-errors-1.2.0.tgz#eb62d2adb15e4eaf4610c04afe1529384250abad"
   integrity sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=
 
-redis-parser@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-2.6.0.tgz#52ed09dacac108f1a631c07e9b69941e7a19504b"
-  integrity sha1-Uu0J2srBCPGmMcB+m2mUHnoZUEs=
-
 redis-parser@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-3.0.0.tgz#b66d828cdcafe6b4b8a428a7def4c6bcac31c8b4"
   integrity sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=
   dependencies:
     redis-errors "^1.0.0"
-
-redis@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-2.8.0.tgz#202288e3f58c49f6079d97af7a10e1303ae14b02"
-  integrity sha512-M1OkonEQwtRmZv4tEWF2VgpG0JWJ8Fv1PhlgT5+B+uNq2cA3Rt1Yt/ryoR+vQNOQcIEgdCdfH0jr3bDpihAw1A==
-  dependencies:
-    double-ended-queue "^2.1.0-0"
-    redis-commands "^1.2.0"
-    redis-parser "^2.6.0"
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
