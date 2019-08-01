@@ -1,12 +1,14 @@
 FROM node:10-alpine
 
-COPY . /usr/lib/webapp
-RUN cd /usr/lib/webapp && \
-    mv docker-entrypoint.sh /usr/local/bin && \
-    yarn install --ignore-optional
+COPY . /home/node/webapp
+
+RUN cd /home/node/webapp; \
+    mv docker-entrypoint.sh /usr/local/bin; \
+    chmod +x /usr/local/bin/docker-entrypoint.sh; \
+    yarn install
 
 EXPOSE 3000
 
-WORKDIR /usr/lib/webapp
+WORKDIR /home/node/webapp
 ENTRYPOINT [ "docker-entrypoint.sh" ]
 CMD ["npm", "start"]
