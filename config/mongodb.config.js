@@ -33,7 +33,7 @@ var ConnectionString = class {
     // Options
     if (this.options) {
       url += "?";
-      for (var key of this.options) {
+      for (var key in this.options) {
         url += `${key}=${this.options[key]}&`;
       }
       url = url.slice(0, url.length - 1);
@@ -49,6 +49,7 @@ var connection = new ConnectionString(
   process.env.MONGODB_HOSTS || "",
   process.env.MONGODB_DATABASE || ""
 );
+(process.env.MONGODB_USERNAME && process.env.MONGODB_PASSWORD) && connection.setOption("authSource", "weblog");
 process.env.MONGODB_REPLICASET && connection.setOption("replicaSet", process.env.MONGODB_REPLICASET);
 
 module.exports = {
